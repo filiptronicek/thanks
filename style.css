@@ -9,3 +9,9 @@ html {
 h1 {
     font-size: 2.5em;
 }
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #2e2e2e;
+		color: #e4e4e4 !important;
+	}
+}
