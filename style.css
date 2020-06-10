@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+.count {
+    font-size: 2em;
+}
+h1 {
+    font-size: 2.5em;
+}
