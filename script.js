@@ -7,7 +7,7 @@ function getCount() {
   const oReq = new XMLHttpRequest();
 
   function reqListener() {
-    txtCount = JSON.parse(this.responseText).count;
+    txtCount = JSON.parse(this.responseText).sponsors.count;
     count.innerText = txtCount == 1 ? "1 sponsor" : txtCount + " sponsors";
   }
 
@@ -19,7 +19,7 @@ function getSponsors() {
   const oReq = new XMLHttpRequest();
 
   function reqListener() {
-    txtCount = JSON.parse(this.responseText);
+    txtCount = JSON.parse(this.responseText).sponsors;
     for (let t of txtCount) {
       sponsorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.profile}">
