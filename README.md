@@ -1,2 +1,2 @@
-# thanks
- A page for my GitHub Sponsors
+# Thanks
+ A page to thank my GitHub Sponsors
