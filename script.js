@@ -23,7 +23,7 @@ function getSponsors() {
     for (let t of txtCount) {
       sponsorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.profile}">
-        ${t.handle} 
+        ${t.details.name || t.handle} 
           <br>
         <img src="${t.avatar}"> 
         </a>
