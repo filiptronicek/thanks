@@ -17,7 +17,16 @@ function getCount() {
 }
 function getTwt(twitter_username) {
   console.table(twitter_username);
-  if(twitter_username) return '<a href="https://twitter.com/'+twitter_username+'"><i class="fa fa-twitter"></i></a>';
+  if (twitter_username)
+    return (
+      '<a href="https://twitter.com/' +
+      twitter_username +
+      '"><i class="fa fa-twitter"></i></a>'
+    );
+  else return "";
+}
+function getSite(site) {
+  if (site) return '<a href="' + site + '"><i class="fa fa-link"></i></a>';
   else return "";
 }
 function getSponsors() {
@@ -33,7 +42,7 @@ function getSponsors() {
             <img src="${t.avatar}"> 
         </a>
           <br>
-        ${getTwt(t.details.twitter_username)} <br>
+        ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
       </li>
       `;
     }
