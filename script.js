@@ -17,7 +17,7 @@ function getCount() {
 }
 function getTwt(twitter_username) {
   console.table(twitter_username);
-  if(twitter_username) return '<a href="https://twitter.com/"'+twitter_username+'"><i class="fa fa-twitter"></i></a>';
+  if(twitter_username) return '<a href="https://twitter.com/'+twitter_username+'"><i class="fa fa-twitter"></i></a>';
   else return "";
 }
 function getSponsors() {
