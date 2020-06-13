@@ -43,3 +43,6 @@ a img {
 .sponsors li {
   margin: 20px 20px
 }
+.sponsors li img {
+  margin-top: 1.05rem;
+}
