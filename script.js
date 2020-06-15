@@ -3,11 +3,23 @@ const sponsorsList = document.getElementById("sponsor-list");
 
 const user = "filiptronicek";
 
+index = 0;
+
+let updateSlash = setInterval(() => {
+    index++;
+    if(index % 2 == 0) {
+      count.innerText = "\\"
+    } else{
+      count.innerText = "/"
+    }
+}, 300);
+
 function getCount() {
   const oReq = new XMLHttpRequest();
 
   function reqListener() {
     txtCount = JSON.parse(this.responseText).sponsors.count;
+    clearInterval(updateSlash);
     count.innerText = txtCount == 1 ? "1 sponsor" : txtCount + " sponsors";
   }
 
@@ -16,7 +28,6 @@ function getCount() {
   oReq.send();
 }
 function getTwt(twitter_username) {
-  console.table(twitter_username);
   if (twitter_username)
     return (
       '<a href="https://twitter.com/' +
