@@ -8,9 +8,9 @@ index = 0;
 let updateSlash = setInterval(() => {
     index++;
     if(index % 2 == 0) {
-      count.innerText = "\\"
+      count.innerText = "\\";
     } else{
-      count.innerText = "/"
+      count.innerText = "/";
     }
 }, 300);
 
