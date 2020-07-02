@@ -29,17 +29,19 @@ function getCount() {
 }
 function getTwt(twitter_username) {
   if (twitter_username)
-    return ('<a href="https://twitter.com/' + twitter_username +
-            '" target="blank"><i class="fa fa-twitter"></i></a>');
-  else
-    return "";
+    return (
+      '<a href="https://twitter.com/' +
+      twitter_username +
+      '" target="blank"><i class="fa fa-twitter"></i></a>'
+    );
+  else return "";
 }
 function getSite(site) {
   if (site)
-    return '<a href="' + site +
-           '" target="blank"><i class="fa fa-link"></i></a>';
-  else
-    return "";
+    return (
+      '<a href="' + site + '" target="blank"><i class="fa fa-link"></i></a>'
+    );
+  else return "";
 }
 function getSponsors() {
   const oReq = new XMLHttpRequest();
