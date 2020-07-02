@@ -52,9 +52,9 @@ function getSponsors() {
     for (let t of txtCount) {
       sponsorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.profile}">
-        ${t.details.name || t.handle} 
+        ${t.details.name || t.handle}
           <br>
-            <img src="${t.avatar}"> 
+            <img src="${t.avatar}" alt="sponsor: ${t.name}"> 
         </a>
           <br>
         ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
@@ -75,9 +75,9 @@ function getDonors() {
     for (let t of txtCount) {
       donorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.web}">
-        ${t.name || t.handle} 
+        ${t.name || t.handle}
           <br>
-            <img src="${t.avatar}" width="60"> 
+            <img src="${t.avatar}" width="60" alt="donator: ${t.name}"> 
         </a>
           <br>
         ${getTwt(t.twitter)} ${getSite(t.web)}<br>
