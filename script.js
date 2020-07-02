@@ -51,9 +51,9 @@ function getSponsors() {
     for (let t of txtCount) {
       sponsorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.profile}">
-        ${t.details.name || t.handle} 
+        ${t.details.name || t.handle}
           <br>
-            <img src="${t.avatar}"> 
+            <img src="${t.avatar}">
         </a>
           <br>
         ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
