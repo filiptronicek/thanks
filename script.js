@@ -6,12 +6,12 @@ const user = "filiptronicek";
 index = 0;
 
 let updateSlash = setInterval(() => {
-    index++;
-    if(index % 2 == 0) {
-      count.innerText = "\\";
-    } else{
-      count.innerText = "/";
-    }
+  index++;
+  if (index % 2 == 0) {
+    count.innerText = "\\";
+  } else {
+    count.innerText = "/";
+  }
 }, 300);
 
 function getCount() {
@@ -37,7 +37,10 @@ function getTwt(twitter_username) {
   else return "";
 }
 function getSite(site) {
-  if (site) return '<a href="' + site + '" target="blank"><i class="fa fa-link"></i></a>';
+  if (site)
+    return (
+      '<a href="' + site + '" target="blank"><i class="fa fa-link"></i></a>'
+    );
   else return "";
 }
 function getSponsors() {
