@@ -1,17 +1,18 @@
 const count = document.getElementById("sponsor-count");
 const sponsorsList = document.getElementById("sponsor-list");
+const donorsList = document.getElementById("donor-list");
 
 const user = "filiptronicek";
 
 index = 0;
 
 let updateSlash = setInterval(() => {
-    index++;
-    if(index % 2 == 0) {
-      count.innerText = "\\";
-    } else{
-      count.innerText = "/";
-    }
+  index++;
+  if (index % 2 == 0) {
+    count.innerText = "\\";
+  } else {
+    count.innerText = "/";
+  }
 }, 300);
 
 function getCount() {
@@ -37,7 +38,10 @@ function getTwt(twitter_username) {
   else return "";
 }
 function getSite(site) {
-  if (site) return '<a href="' + site + '" target="blank"><i class="fa fa-link"></i></a>';
+  if (site)
+    return (
+      '<a href="' + site + '" target="blank"><i class="fa fa-link"></i></a>'
+    );
   else return "";
 }
 function getSponsors() {
@@ -63,5 +67,29 @@ function getSponsors() {
   oReq.open("GET", `https://sponsors.trnck.dev/${user}/sponsors`);
   oReq.send();
 }
+function getDonors() {
+  const oReq = new XMLHttpRequest();
+
+  function reqListener() {
+    txtCount = JSON.parse(this.responseText).users;
+    for (let t of txtCount) {
+      donorsList.innerHTML += `
+      <li class="sponsor"> <a href="${t.web}">
+        ${t.name || t.handle} 
+          <br>
+            <img src="${t.avatar}" width="60"> 
+        </a>
+          <br>
+        ${getTwt(t.twitter)} ${getSite(t.web)}<br>
+      </li>
+      `;
+    }
+  }
+
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET", `donors.json`);
+  oReq.send();
+}
+getDonors();
 getCount();
 getSponsors();
