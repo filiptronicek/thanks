@@ -49,12 +49,12 @@ function getSponsors() {
 
   function reqListener() {
     txtCount = JSON.parse(this.responseText).sponsors;
-    for (let t of txtCount) {
+    for (const t of txtCount) {
       sponsorsList.innerHTML += `
       <li class="sponsor"> <a href="${t.profile}">
         ${t.details.name || t.handle}
           <br>
-            <img src="${t.avatar}" alt="sponsor: ${t.name}">
+            <img src="${t.avatar}" alt="sponsor: ${t.login}" width="60">
         </a>
           <br>
         ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
