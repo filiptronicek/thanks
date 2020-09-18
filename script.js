@@ -54,7 +54,7 @@ function getSponsors() {
       <li class="sponsor"> <a href="${t.profile}">
         ${t.details.name || t.handle}
           <br>
-            <img src="${t.avatar}" alt="sponsor: ${t.login}" width="60">
+            <img src="https://external.trnck.dev/image?url=${t.avatar}" alt="sponsor: ${t.login}" width="60">
         </a>
           <br>
         ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
@@ -77,7 +77,7 @@ function getDonors() {
       <li class="sponsor"> <a href="${t.web}">
         ${t.name || t.handle}
           <br>
-            <img src="${t.avatar}" width="60" alt="donator: ${t.name}">
+            <img src="https://external.trnck.dev/image?url=${t.avatar}" width="60" alt="donator: ${t.name}">
         </a>
           <br>
         ${getTwt(t.twitter)} ${getSite(t.web)}<br>
