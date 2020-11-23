@@ -36,10 +36,14 @@ function getTwt(twitter_username) {
   else return "";
 }
 function getSite(site) {
-  if (site)
+  if (site) {
+    if (!site.match(/^https|http:\/\/.{1,256}/g)) {
+      site = `http://${site}`;
+    }
     return (
       `<a href="${site}" target="blank"><i class="fa fa-link"></i></a>`
     );
+  }
   else return "";
 }
 function getSponsors() {
