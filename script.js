@@ -79,7 +79,7 @@ function getDonors() {
       <li class="sponsor"> <a href="${t.web}">
         ${t.name || t.handle}
           <br>
-            <img src="https://external.trnck.dev/image?url=${t.avatar}" width="60" alt="donator: ${t.name}">
+            <img src="https://trnck.dev/proxy?url=${t.avatar}" width="60" alt="donator: ${t.name}">
         </a>
           <br>
         ${getTwt(t.twitter)} ${getSite(t.web)}<br>
