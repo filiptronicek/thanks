@@ -56,7 +56,7 @@ function getSponsors() {
       <li class="sponsor"> <a href="${t.profile}">
         ${t.details.name || t.handle}
           <br>
-            <img src="https://external.trnck.dev/image?url=${t.avatar}" alt="sponsor: ${t.login}" width="60">
+            <img src="https://trnck.dev/proxy?url=${t.avatar}" alt="sponsor: ${t.login}" width="60">
         </a>
           <br>
         ${getTwt(t.details.twitter_username)} ${getSite(t.details.blog)}<br>
