@@ -25,7 +25,7 @@ function getCount() {
   }
 
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `https://sponsors.trnck.dev/${user}/count`);
+  oReq.open("GET", `https://sponsors.trnck.dev/count/${user}`);
   oReq.send();
 }
 function getTwt(twitter_username) {
@@ -66,7 +66,7 @@ function getSponsors() {
   }
 
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `https://sponsors.trnck.dev/${user}/sponsors`);
+  oReq.open("GET", `https://sponsors.trnck.dev/sponsors/${user}`);
   oReq.send();
 }
 function getDonors() {
