@@ -3,10 +3,11 @@ const sponsorsList = document.getElementById("sponsor-list");
 const donorsList = document.getElementById("donor-list");
 
 const user = "filiptronicek";
+const sponsorsApi = "https://ghs.vercel.app/";
 
-index = 0;
+let index = 0;
 
-let updateSlash = setInterval(() => {
+const updateSlash = setInterval(() => {
   index++;
   if (index % 2 == 0) {
     count.innerText = "\\";
@@ -15,18 +16,18 @@ let updateSlash = setInterval(() => {
   }
 }, 300);
 
-function getCount() {
-  const oReq = new XMLHttpRequest();
+async function getCount() {
+  const sponsorsResponse = await fetch(`${sponsorsApi}count/${user}`)
 
-  function reqListener() {
-    txtCount = JSON.parse(this.responseText).sponsors.count;
-    clearInterval(updateSlash);
-    count.innerText = txtCount == 1 ? "1 sponsor" : txtCount + " sponsors";
+  clearInterval(updateSlash);
+
+  if (!sponsorsResponse.ok) {
+    console.error("Error loading sponsors: ", sponsorsResponse.statusText)
   }
 
-  oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `https://sponsors.trnck.dev/count/${user}`);
-  oReq.send();
+  const data = await sponsorsResponse.json();
+  const sponsorsCount = data.sponsors.count;
+  count.innerText = sponsorsCount === 1 ? "1 sponsor" : sponsorsCount + " sponsors";
 }
 function getTwt(twitter_username) {
   if (twitter_username)
@@ -66,7 +67,7 @@ function getSponsors() {
   }
 
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `https://sponsors.trnck.dev/sponsors/${user}`);
+  oReq.open("GET", `${sponsorsApi}sponsors/${user}`);
   oReq.send();
 }
 function getDonors() {
@@ -74,15 +75,15 @@ function getDonors() {
 
   function reqListener() {
     txtCount = JSON.parse(this.responseText).users;
-    for (let t of txtCount) {
+    for (const donor of txtCount) {
       donorsList.innerHTML += `
-      <li class="sponsor"> <a href="${t.web}">
-        ${t.name || t.handle}
+      <li class="sponsor"> <a href="${donor.web}">
+        ${donor.name || donor.handle}
           <br>
-            <img src="https://trnck.dev/proxy?url=${t.avatar}" width="60" alt="donator: ${t.name}">
+            <img src="https://trnck.dev/proxy?url=${donor.avatar}" width="60" alt="donator: ${donor.name}">
         </a>
           <br>
-        ${getTwt(t.twitter)} ${getSite(t.web)}<br>
+        ${getTwt(donor.twitter)} ${getSite(donor.web)}<br>
       </li>
       `;
     }
@@ -92,6 +93,7 @@ function getDonors() {
   oReq.open("GET", `donors.json`);
   oReq.send();
 }
+
 getDonors();
 getCount();
 getSponsors();
